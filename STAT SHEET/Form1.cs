@@ -13,8 +13,16 @@ namespace STAT_SHEET
     public partial class Form1 : Form
     {
         int str, dex, vit, intel, wis, cha, luk = 10;
-        public Form1()
+        string name;
+        public Form1(CharData CHAR)
         {
+            str = CHAR.STR;
+            dex = CHAR.DEX;
+            vit = CHAR.VIT;
+            intel = CHAR.INT;
+            wis = CHAR.WIS;
+            cha = CHAR.CHA;
+            luk = CHAR.LUK;
             InitializeComponent();
         }
 
@@ -34,6 +42,26 @@ namespace STAT_SHEET
                 dex = Convert.ToInt32(DEX.Text);
                 DEXB.Text = ((dex - 10) / 2).ToString();
             }
+        }
+
+        private void Calc_Click(object sender, EventArgs e)
+        {
+            Calc_Out.Text = Program.eval(Calculator.Text).ToString(); 
+        }
+
+        private void Calculator_KeyDown(object sender, KeyEventArgs e)
+        {
+            Calc_Click(this, e);
+        }
+
+        private void STRB_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            name = textBox1.Text;
         }
 
         private void VIT_TextChanged(object sender, EventArgs e)
