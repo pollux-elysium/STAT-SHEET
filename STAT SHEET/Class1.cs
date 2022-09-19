@@ -8,20 +8,20 @@ namespace STAT_SHEET
 {
     public class CharData
     {
-        public int STR;
-        public int DEX;
-        public int VIT;
-        public int INT;
-        public int WIS;
-        public int CHA;
-        public int LUK;
-        public string NAME;
-        public string DESC;
-        public Items[] ITEMS;
+        public int STR { get; set; }
+        public int DEX { get; set; }
+        public int VIT { get; set; }
+        public int INT { get; set; }
+        public int WIS { get; set; }
+        public int CHA { get; set; }
+        public int LUK { get; set; }
+        public string NAME { get; set; } = "Empty Name";
+        public string DESC { get; set; } = "";
+        //public List<Items> ITEMS;
     }
 
     public class Items {
-        public string NAME;
-        public string DESC;
+        public string NAME { get; set; }
+        public string DESC { get; set; }
     }
 }

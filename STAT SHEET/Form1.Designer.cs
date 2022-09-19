@@ -59,11 +59,11 @@
             this.WISB = new System.Windows.Forms.TextBox();
             this.CHAB = new System.Windows.Forms.TextBox();
             this.LUKB = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.Calculator = new System.Windows.Forms.TextBox();
             this.Calc_Out = new System.Windows.Forms.TextBox();
             this.Calc = new System.Windows.Forms.Button();
+            this.Save = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -362,26 +362,16 @@
             this.LUKB.Size = new System.Drawing.Size(221, 35);
             this.LUKB.TabIndex = 31;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(220, 509);
-            this.button1.Margin = new System.Windows.Forms.Padding(5);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(383, 102);
-            this.button1.TabIndex = 32;
-            this.button1.Text = "Roll";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // richTextBox1
             // 
             this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.richTextBox1.Location = new System.Drawing.Point(805, 154);
             this.richTextBox1.Margin = new System.Windows.Forms.Padding(5);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(571, 637);
+            this.richTextBox1.Size = new System.Drawing.Size(571, 349);
             this.richTextBox1.TabIndex = 33;
             this.richTextBox1.Text = "";
+            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // Calculator
             // 
@@ -411,16 +401,26 @@
             this.Calc.UseVisualStyleBackColor = true;
             this.Calc.Click += new System.EventHandler(this.Calc_Click);
             // 
+            // Save
+            // 
+            this.Save.Location = new System.Drawing.Point(805, 22);
+            this.Save.Name = "Save";
+            this.Save.Size = new System.Drawing.Size(300, 70);
+            this.Save.TabIndex = 37;
+            this.Save.Text = "Save";
+            this.Save.UseVisualStyleBackColor = true;
+            this.Save.Click += new System.EventHandler(this.Save_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1400, 816);
+            this.Controls.Add(this.Save);
             this.Controls.Add(this.Calc);
             this.Controls.Add(this.Calc_Out);
             this.Controls.Add(this.Calculator);
             this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.LUKB);
             this.Controls.Add(this.CHAB);
             this.Controls.Add(this.WISB);
@@ -454,7 +454,8 @@
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "Form1";
-            this.Text = "STATS";
+            this.Text = "Char Editor";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -493,11 +494,11 @@
         private System.Windows.Forms.TextBox WISB;
         private System.Windows.Forms.TextBox CHAB;
         private System.Windows.Forms.TextBox LUKB;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.TextBox Calculator;
         private System.Windows.Forms.TextBox Calc_Out;
         private System.Windows.Forms.Button Calc;
+        private System.Windows.Forms.Button Save;
     }
 }
 

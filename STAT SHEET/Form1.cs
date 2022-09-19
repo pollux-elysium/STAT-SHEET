@@ -12,26 +12,30 @@ namespace STAT_SHEET
 {
     public partial class Form1 : Form
     {
-        int str, dex, vit, intel, wis, cha, luk = 10;
-        string name;
-        public Form1(CharData CHAR)
+        CharData CHAR;
+        Main Caller;
+        public Form1(CharData INPUT, Main caller)
         {
-            str = CHAR.STR;
-            dex = CHAR.DEX;
-            vit = CHAR.VIT;
-            intel = CHAR.INT;
-            wis = CHAR.WIS;
-            cha = CHAR.CHA;
-            luk = CHAR.LUK;
+            CHAR = INPUT;
+            Caller = caller;
             InitializeComponent();
+            STR.Text = CHAR.STR.ToString();
+            DEX.Text = CHAR.DEX.ToString();
+            VIT.Text = CHAR.VIT.ToString();
+            INT.Text = CHAR.INT.ToString();
+            WIS.Text = CHAR.WIS.ToString();
+            CHA.Text = CHAR.CHA.ToString();
+            LUK.Text = CHAR.LUK.ToString();
+            textBox1.Text = CHAR.NAME;
+            richTextBox1.Text = CHAR.DESC;
         }
 
         private void STR_TextChanged(object sender, EventArgs e)
         {
             if (STR.Text != "")
             {
-                str = Convert.ToInt32(STR.Text);
-                STRB.Text = ((str - 10) / 2).ToString();
+                CHAR.STR = Convert.ToInt32(STR.Text);
+                STRB.Text = ((CHAR.STR - 10) / 2).ToString();
             }
         }
 
@@ -39,14 +43,14 @@ namespace STAT_SHEET
         {
             if (DEX.Text != "")
             {
-                dex = Convert.ToInt32(DEX.Text);
-                DEXB.Text = ((dex - 10) / 2).ToString();
+                CHAR.DEX = Convert.ToInt32(DEX.Text);
+                DEXB.Text = ((CHAR.DEX - 10) / 2).ToString();
             }
         }
 
         private void Calc_Click(object sender, EventArgs e)
         {
-            Calc_Out.Text = Program.eval(Calculator.Text).ToString(); 
+            Calc_Out.Text = Program.eval(Calculator.Text).ToString();
         }
 
         private void Calculator_KeyDown(object sender, KeyEventArgs e)
@@ -61,15 +65,28 @@ namespace STAT_SHEET
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            name = textBox1.Text;
+            CHAR.NAME = textBox1.Text;
+        }
+
+        private void Save_Click(object sender, EventArgs e)
+        {
+            if (Program.chars.Any(_ => _.NAME == CHAR.NAME))
+            {
+                Program.chars[Program.chars.FindIndex(_ => _.NAME == CHAR.NAME)] = CHAR;
+            }
+            else
+            {
+                Program.chars.Add(CHAR);
+            }
+            Caller.refresh();
         }
 
         private void VIT_TextChanged(object sender, EventArgs e)
         {
             if (VIT.Text != "")
             {
-                vit = Convert.ToInt32(VIT.Text);
-                VITB.Text = ((vit - 10) / 2).ToString();
+                CHAR.VIT = Convert.ToInt32(VIT.Text);
+                VITB.Text = ((CHAR.VIT - 10) / 2).ToString();
             }
         }
 
@@ -77,8 +94,8 @@ namespace STAT_SHEET
         {
             if (INT.Text != "")
             {
-                intel = Convert.ToInt32(INT.Text);
-                INTB.Text = ((intel - 10) / 2).ToString();
+                CHAR.INT = Convert.ToInt32(INT.Text);
+                INTB.Text = ((CHAR.INT - 10) / 2).ToString();
             }
         }
 
@@ -86,8 +103,8 @@ namespace STAT_SHEET
         {
             if (WIS.Text != "")
             {
-                wis = Convert.ToInt32(WIS.Text);
-                WISB.Text = ((wis - 10) / 2).ToString();
+                CHAR.WIS = Convert.ToInt32(WIS.Text);
+                WISB.Text = ((CHAR.WIS - 10) / 2).ToString();
             }
         }
 
@@ -95,8 +112,8 @@ namespace STAT_SHEET
         {
             if (CHA.Text != "")
             {
-                cha = Convert.ToInt32(CHA.Text);
-                CHAB.Text = ((cha - 10) / 2).ToString();
+                CHAR.CHA = Convert.ToInt32(CHA.Text);
+                CHAB.Text = ((CHAR.CHA - 10) / 2).ToString();
             }
         }
 
@@ -104,8 +121,8 @@ namespace STAT_SHEET
         {
             if (LUK.Text != "")
             {
-                luk = Convert.ToInt32(LUK.Text);
-                LUKB.Text = ((luk - 10) / 2).ToString();
+                CHAR.LUK = Convert.ToInt32(LUK.Text);
+                LUKB.Text = ((CHAR.LUK - 10) / 2).ToString();
             }
         }
 
@@ -113,6 +130,16 @@ namespace STAT_SHEET
         {
             Form2 roll = new Form2();
             roll.Show();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            CHAR.DESC = richTextBox1.Text;
         }
     }
 }
