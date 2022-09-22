@@ -28,12 +28,18 @@ namespace STAT_SHEET
     }
 
     public class Items {
-        public string NAME { get; set; }
-        public string DESC { get; set; }
+        public string NAME { get; set; } = "Empty Name";
+        public string DESC { get; set; } = "";
     }
 
     public class Skill {
         public string NAME { get; set; }
         public string DESC { get; set; }
+    }
+
+    public class ProgramData
+    {
+        public List<CharData> chars { get; set; } = new List<CharData>();
+        public List<Items> items { get; set; } = new List<Items>();
     }
 }

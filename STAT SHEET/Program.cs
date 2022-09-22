@@ -17,9 +17,10 @@ namespace STAT_SHEET
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Main());
+            Application.Run( main = new Main());
         }
-        public static List<CharData> chars = new List<CharData>();
+        public static ProgramData data = new ProgramData();
+        public static Main main;
         public static double eval(string expres)
         {
             System.Data.DataTable table = new System.Data.DataTable();
@@ -37,8 +38,7 @@ namespace STAT_SHEET
                 WriteIndented = true,
                 IncludeFields = true
             };
-            Console.WriteLine(chars.ToArray().ToString());
-            string json = JsonSerializer.Serialize(chars,option);
+            string json = JsonSerializer.Serialize(data,option);
             Console.WriteLine(json);
             System.IO.File.WriteAllText(path, json);
         }

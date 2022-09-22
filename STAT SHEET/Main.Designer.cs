@@ -67,6 +67,7 @@
             this.textBox12 = new System.Windows.Forms.TextBox();
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ListChar
@@ -351,7 +352,7 @@
             // 
             this.ItemList.FormattingEnabled = true;
             this.ItemList.ItemHeight = 29;
-            this.ItemList.Location = new System.Drawing.Point(546, 299);
+            this.ItemList.Location = new System.Drawing.Point(541, 299);
             this.ItemList.Name = "ItemList";
             this.ItemList.Size = new System.Drawing.Size(211, 497);
             this.ItemList.TabIndex = 33;
@@ -359,21 +360,23 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(656, 252);
+            this.button1.Location = new System.Drawing.Point(885, 252);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(101, 43);
+            this.button1.Size = new System.Drawing.Size(129, 43);
             this.button1.TabIndex = 34;
-            this.button1.Text = "Add";
+            this.button1.Text = "Manage";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(750, 252);
+            this.button2.Location = new System.Drawing.Point(763, 252);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(125, 43);
             this.button2.TabIndex = 35;
             this.button2.Text = "Remove";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // textBox12
             // 
@@ -387,7 +390,7 @@
             // 
             this.textBox13.Location = new System.Drawing.Point(763, 299);
             this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(242, 35);
+            this.textBox13.Size = new System.Drawing.Size(251, 35);
             this.textBox13.TabIndex = 37;
             this.textBox13.TextChanged += new System.EventHandler(this.textBox13_TextChanged);
             // 
@@ -395,16 +398,27 @@
             // 
             this.richTextBox2.Location = new System.Drawing.Point(763, 337);
             this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(242, 459);
+            this.richTextBox2.Size = new System.Drawing.Size(251, 459);
             this.richTextBox2.TabIndex = 38;
             this.richTextBox2.Text = "";
             this.richTextBox2.TextChanged += new System.EventHandler(this.richTextBox2_TextChanged);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(656, 252);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(101, 43);
+            this.button3.TabIndex = 39;
+            this.button3.Text = "New";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(216F, 216F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(1572, 821);
+            this.ClientSize = new System.Drawing.Size(1600, 900);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.richTextBox2);
             this.Controls.Add(this.textBox13);
             this.Controls.Add(this.textBox12);
@@ -491,5 +505,6 @@
         private System.Windows.Forms.TextBox textBox12;
         private System.Windows.Forms.TextBox textBox13;
         private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.Button button3;
     }
 }

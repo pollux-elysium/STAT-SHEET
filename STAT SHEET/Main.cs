@@ -14,7 +14,7 @@ namespace STAT_SHEET
     public partial class Main : Form
     {
         string selectedChar;
-        CharData CharSelect;
+        public CharData CharSelect;
 
         string selectedItem;
         Items ItemSelect;
@@ -42,7 +42,7 @@ namespace STAT_SHEET
             if (ListChar.SelectedItem != null)
             {
                 selectedChar = ListChar.SelectedItem.ToString();
-                CharSelect = Program.chars.Find(_ => _.NAME == selectedChar);
+                CharSelect = Program.data.chars.Find(_ => _.NAME == selectedChar);
                 textBox1.Text = CharSelect.STR.ToString();
                 textBox2.Text = CharSelect.DEX.ToString();
                 textBox3.Text = CharSelect.VIT.ToString();
@@ -56,7 +56,6 @@ namespace STAT_SHEET
                 textBox11.Text = CharSelect.MaxHP.ToString();
                 richTextBox1.Text = CharSelect.DESC;
                 textBox12.Text = CharSelect.NAME;
-                refreshItem();
                 textBox1.ReadOnly = false;
                 textBox2.ReadOnly = false;
                 textBox3.ReadOnly = false;
@@ -70,6 +69,7 @@ namespace STAT_SHEET
                 textBox11.ReadOnly = false;
                 textBox12.ReadOnly = false;
                 richTextBox1.ReadOnly = false;
+                refreshItem();
             }
         }
 
@@ -86,21 +86,21 @@ namespace STAT_SHEET
                     WriteIndented = true,
                     IncludeFields = true
                 };
-                Program.chars = JsonSerializer.Deserialize<List<CharData>>(System.IO.File.ReadAllText(path));
+                Program.data = JsonSerializer.Deserialize<ProgramData>(System.IO.File.ReadAllText(path));
             }
             refreshChar();
         }
 
         private void Add_Click(object sender, EventArgs e)
         {
-            Program.chars.Add(new CharData());
+            Program.data.chars.Add(new CharData());
             refreshChar();
         }
 
         private void Refresh_Click(object sender, EventArgs e)
         {
             ListChar.Items.Clear();
-            foreach (CharData CHAR in Program.chars)
+            foreach (CharData CHAR in Program.data.chars)
             {
                 ListChar.Items.Add(CHAR.NAME);
             }
@@ -108,7 +108,7 @@ namespace STAT_SHEET
         public void refreshChar()
         {
             ListChar.Items.Clear();
-            foreach (CharData CHAR in Program.chars)
+            foreach (CharData CHAR in Program.data.chars)
             {
                 ListChar.Items.Add(CHAR.NAME);
             }
@@ -126,12 +126,22 @@ namespace STAT_SHEET
             textBox12.ReadOnly = true;
             richTextBox1.ReadOnly = true;
         }
+        public void rerenderChar() {
+            ListChar.Items.Clear();
+            foreach (CharData CHAR in Program.data.chars)
+            {
+                ListChar.Items.Add(CHAR.NAME);
+            }
+        }
         private void Remove_Click(object sender, EventArgs e)
         {
             if (selectedChar != null)
             {
-                Program.chars.Remove(Program.chars.Find(x => x.NAME == selectedChar));
+                Program.data.chars.Remove(Program.data.chars.Find(x => x.NAME == selectedChar));
                 refreshChar();
+            } else
+            {
+                MessageBox.Show("Please select a character to remove.");
             }
         }
 
@@ -209,7 +219,7 @@ namespace STAT_SHEET
         private void textBox12_TextChanged(object sender, EventArgs e)
         {
             CharSelect.NAME = textBox12.Text;
-            refreshChar();
+            rerenderChar();
         }
 
         private void ItemList_SelectedIndexChanged(object sender, EventArgs e)
@@ -225,7 +235,7 @@ namespace STAT_SHEET
             }
         }
 
-        void refreshItem()
+        public void refreshItem()
         {
             ItemList.Items.Clear();
             foreach (Items item in CharSelect.ITEMS)
@@ -235,16 +245,56 @@ namespace STAT_SHEET
             textBox13.ReadOnly = true;
             richTextBox2.ReadOnly = true;
         }
+        
+        void rerenderItem()
+        {
+            ItemList.Items.Clear();
+            foreach (Items item in CharSelect.ITEMS)
+            {
+                ItemList.Items.Add(item.NAME);
+            }
+        }
 
         private void textBox13_TextChanged(object sender, EventArgs e)
         {
             ItemSelect.NAME = textBox13.Text;
-            refreshItem();
+            rerenderItem();
         }
 
         private void richTextBox2_TextChanged(object sender, EventArgs e)
         {
             ItemSelect.DESC = richTextBox2.Text;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (CharSelect != null)
+            {
+                CharSelect.ITEMS.Add(new Items());
+                refreshItem();
+            }
+            else
+            {
+                MessageBox.Show("Select a character");
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (CharSelect != null & ItemSelect != null)
+            {
+                CharSelect.ITEMS.Remove(CharSelect.ITEMS.Find(x => x.NAME == selectedItem));
+                refreshItem();
+            }
+            else
+            {
+                MessageBox.Show("Select a character and an item");
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            new ItemManager().Show();
         }
     }
 }

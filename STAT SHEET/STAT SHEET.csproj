@@ -109,6 +109,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="ItemManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ItemManager.Designer.cs">
+      <DependentUpon>ItemManager.cs</DependentUpon>
+    </Compile>
     <Compile Include="Roll.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +129,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ItemManager.resx">
+      <DependentUpon>ItemManager.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Roll.resx">
       <DependentUpon>Roll.cs</DependentUpon>
     </EmbeddedResource>
@@ -139,6 +148,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="format2.json" />
     <None Include="json1.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
