@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace STAT_SHEET
 {
-    public partial class Form2 : Form
+    public partial class Roll : Form
     {
         Random rand = new Random();
-        public Form2()
+        public Roll()
         {
             InitializeComponent();
         }

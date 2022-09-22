@@ -7,7 +7,18 @@
     "WIS": 12,
     "CHA": 10,
     "LUK": 12,
+    "MaxHP": 16,
+    "MaxMP": 28,
+    "HP": 16,
+    "MP": 28,
     "NAME": "Pollux",
-    "DESC": ""
+    "DESC": "",
+    "ITEMS": [
+      {
+        "NAME": "TEST ITEM 1",
+        "DESC": ""
+      }
+    ],
+    "SKILLS": []
   }
 ]

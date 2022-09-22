@@ -15,12 +15,24 @@ namespace STAT_SHEET
         public int WIS { get; set; }
         public int CHA { get; set; }
         public int LUK { get; set; }
+        public int MaxHP { get; set; }
+        public int MaxMP { get; set; }
+        public int HP { get; set; }
+        public int MP { get; set; }
+        
         public string NAME { get; set; } = "Empty Name";
         public string DESC { get; set; } = "";
-        //public List<Items> ITEMS;
+
+        public List<Items> ITEMS { get; set; } = new List<Items>();
+        public List<Skill> SKILLS { get; set; } = new List<Skill>();
     }
 
     public class Items {
+        public string NAME { get; set; }
+        public string DESC { get; set; }
+    }
+
+    public class Skill {
         public string NAME { get; set; }
         public string DESC { get; set; }
     }
