@@ -68,6 +68,12 @@
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
+            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.SkillList = new System.Windows.Forms.ListBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // ListChar
@@ -413,11 +419,73 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(1288, 252);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(101, 43);
+            this.button4.TabIndex = 46;
+            this.button4.Text = "New";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // richTextBox3
+            // 
+            this.richTextBox3.Location = new System.Drawing.Point(1288, 337);
+            this.richTextBox3.Name = "richTextBox3";
+            this.richTextBox3.Size = new System.Drawing.Size(251, 459);
+            this.richTextBox3.TabIndex = 45;
+            this.richTextBox3.Text = "";
+            this.richTextBox3.TextChanged += new System.EventHandler(this.richTextBox3_TextChanged);
+            // 
+            // textBox14
+            // 
+            this.textBox14.Location = new System.Drawing.Point(1288, 299);
+            this.textBox14.Name = "textBox14";
+            this.textBox14.Size = new System.Drawing.Size(251, 35);
+            this.textBox14.TabIndex = 44;
+            this.textBox14.TextChanged += new System.EventHandler(this.textBox14_TextChanged);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(1414, 252);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(125, 43);
+            this.button5.TabIndex = 43;
+            this.button5.Text = "Remove";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // SkillList
+            // 
+            this.SkillList.FormattingEnabled = true;
+            this.SkillList.ItemHeight = 29;
+            this.SkillList.Location = new System.Drawing.Point(1066, 299);
+            this.SkillList.Name = "SkillList";
+            this.SkillList.Size = new System.Drawing.Size(211, 497);
+            this.SkillList.TabIndex = 41;
+            this.SkillList.SelectedIndexChanged += new System.EventHandler(this.SkillList_SelectedIndexChanged);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(1066, 266);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(59, 29);
+            this.label14.TabIndex = 40;
+            this.label14.Text = "Skill";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(216F, 216F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1600, 900);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.richTextBox3);
+            this.Controls.Add(this.textBox14);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.SkillList);
+            this.Controls.Add(this.label14);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.richTextBox2);
             this.Controls.Add(this.textBox13);
@@ -506,5 +574,11 @@
         private System.Windows.Forms.TextBox textBox13;
         private System.Windows.Forms.RichTextBox richTextBox2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.RichTextBox richTextBox3;
+        private System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.ListBox SkillList;
+        private System.Windows.Forms.Label label14;
     }
 }

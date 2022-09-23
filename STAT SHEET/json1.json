@@ -20,7 +20,12 @@
           "DESC": "\u002B10000DMG\n\nOMG SO FUKIN COOL"
         }
       ],
-      "SKILLS": []
+      "SKILLS": [
+        {
+          "NAME": "YEET",
+          "DESC": "InstaKill an enemy.\nNo cooldown"
+        }
+      ]
     }
   ],
   "items": [

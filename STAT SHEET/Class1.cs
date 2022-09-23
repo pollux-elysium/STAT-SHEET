@@ -33,8 +33,8 @@ namespace STAT_SHEET
     }
 
     public class Skill {
-        public string NAME { get; set; }
-        public string DESC { get; set; }
+        public string NAME { get; set; } = "Empty Name";
+        public string DESC { get; set; } = "";
     }
 
     public class ProgramData

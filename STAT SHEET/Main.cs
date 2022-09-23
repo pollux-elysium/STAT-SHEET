@@ -18,6 +18,9 @@ namespace STAT_SHEET
 
         string selectedItem;
         Items ItemSelect;
+
+        string selectSkill;
+        Skill SkillSelect;
         public Main()
         {
             InitializeComponent();
@@ -295,6 +298,76 @@ namespace STAT_SHEET
         private void button1_Click(object sender, EventArgs e)
         {
             new ItemManager().Show();
+        }
+
+        private void SkillList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (SkillList.SelectedItem != null)
+            {
+                selectSkill = SkillList.SelectedItem.ToString();
+                SkillSelect = CharSelect.SKILLS.Find(_ => _.NAME == selectSkill);
+                textBox14.Text = SkillSelect.NAME;
+                textBox14.ReadOnly = false;
+                richTextBox3.Text = SkillSelect.DESC;
+                richTextBox3.ReadOnly = false;
+            }
+        }
+
+        void refreshSkill()
+        {
+            SkillList.Items.Clear();
+            foreach (Skill skill in CharSelect.SKILLS)
+            {
+                SkillList.Items.Add(skill.NAME);
+            }
+            textBox14.ReadOnly = true;
+            richTextBox3.ReadOnly = true;
+        }
+
+        void rerenderSkill()
+        {
+            SkillList.Items.Clear();
+            foreach (Skill skill in CharSelect.SKILLS)
+            {
+                SkillList.Items.Add(skill.NAME);
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (CharSelect != null)
+            {
+                CharSelect.SKILLS.Add(new Skill());
+                refreshSkill();
+            }
+            else
+            {
+                MessageBox.Show("Select a character");
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (SkillSelect != null)
+            {
+                CharSelect.SKILLS.Remove(CharSelect.SKILLS.Find(x => x.NAME == selectSkill));
+                refreshSkill();
+            }
+            else
+            {
+                MessageBox.Show("Select a skill");
+            }
+        }
+
+        private void textBox14_TextChanged(object sender, EventArgs e)
+        {
+            SkillSelect.NAME = textBox14.Text;
+            rerenderSkill();
+        }
+
+        private void richTextBox3_TextChanged(object sender, EventArgs e)
+        {
+            SkillSelect.DESC = richTextBox3.Text;
         }
     }
 }
