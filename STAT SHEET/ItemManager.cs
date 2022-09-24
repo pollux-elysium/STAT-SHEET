@@ -45,7 +45,7 @@ namespace STAT_SHEET
             rerender();
         }
 
-        void refresh() {
+        public void refresh() {
             ItemList.Items.Clear();
             foreach (Items item in Program.data.items)
             {

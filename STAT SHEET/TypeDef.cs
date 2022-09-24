@@ -42,4 +42,10 @@ namespace STAT_SHEET
         public List<CharData> chars { get; set; } = new List<CharData>();
         public List<Items> items { get; set; } = new List<Items>();
     }
+
+    public class SaveData
+    {
+        public string version { get; set; } = Program.version;
+        public ProgramData data { get; set; }
+    }
 }

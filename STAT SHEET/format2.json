@@ -1,32 +1,44 @@
 {
-  "chars": [
-    {
-      "STR": 9,
-      "DEX": 8,
-      "VIT": 8,
-      "INT": 14,
-      "WIS": 12,
-      "CHA": 10,
-      "LUK": 12,
-      "MaxHP": 16,
-      "MaxMP": 28,
-      "HP": 16,
-      "MP": 28,
-      "NAME": "Pollux",
-      "DESC": "",
-      "ITEMS": [
-        {
-          "NAME": "An Op Sword",
-          "DESC": "\u002B10000DMG\n\nOMG SO FUKIN COOL"
-        }
-      ],
-      "SKILLS": []
-    }
-  ],
-  "items": [
-    {
-      "NAME": "Empty Name",
-      "DESC": ""
-    }
-  ]
+  "version": "1.2.0.0",
+  "data": {
+    "chars": [
+      {
+        "STR": 0,
+        "DEX": 0,
+        "VIT": 0,
+        "INT": 0,
+        "WIS": 0,
+        "CHA": 0,
+        "LUK": 0,
+        "MaxHP": 0,
+        "MaxMP": 0,
+        "HP": 0,
+        "MP": 0,
+        "NAME": "TEst 2",
+        "DESC": "Test Desc",
+        "ITEMS": [
+          {
+            "NAME": "Item 1",
+            "DESC": "Nodesc"
+          },
+          {
+            "NAME": "Object 1",
+            "DESC": "Test"
+          }
+        ],
+        "SKILLS": [
+          {
+            "NAME": "Test Skill",
+            "DESC": ""
+          }
+        ]
+      }
+    ],
+    "items": [
+      {
+        "NAME": "Object 1",
+        "DESC": "Test"
+      }
+    ]
+  }
 }

@@ -12,6 +12,8 @@ namespace STAT_SHEET
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
+        /// 
+        public const string version = "1.2.0.0";
         [STAThread]
         static void Main()
         {
@@ -38,7 +40,7 @@ namespace STAT_SHEET
                 WriteIndented = true,
                 IncludeFields = true
             };
-            string json = JsonSerializer.Serialize(data,option);
+            string json = JsonSerializer.Serialize(new SaveData() {data = data },option);
             Console.WriteLine(json);
             System.IO.File.WriteAllText(path, json);
         }

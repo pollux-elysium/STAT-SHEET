@@ -73,6 +73,7 @@ namespace STAT_SHEET
                 textBox12.ReadOnly = false;
                 richTextBox1.ReadOnly = false;
                 refreshItem();
+                refreshSkill();
             }
         }
 
@@ -89,9 +90,31 @@ namespace STAT_SHEET
                     WriteIndented = true,
                     IncludeFields = true
                 };
-                Program.data = JsonSerializer.Deserialize<ProgramData>(System.IO.File.ReadAllText(path));
+                Loader load = new Loader(path);
+                if (load.Loadable())
+                {
+                    Program.data = load.Data();
+                }
+                else 
+                {
+                    MessageBox.Show("File is not a valid save file");
+                }
             }
+            refreshAll();
+        }
+
+        public void refreshAll() {
             refreshChar();
+            if (CharSelect != null)
+            {
+                refreshSkill();
+                refreshItem();
+            }
+            if (manager != null)
+            {
+                manager.refresh();
+            }
+
         }
 
         private void Add_Click(object sender, EventArgs e)
@@ -295,9 +318,17 @@ namespace STAT_SHEET
             }
         }
 
+        ItemManager manager;
         private void button1_Click(object sender, EventArgs e)
         {
-            new ItemManager().Show();
+            if (manager == null)
+            {
+                (manager = new ItemManager()).Show();
+            }
+            else
+            {
+                manager.Show();
+            }
         }
 
         private void SkillList_SelectedIndexChanged(object sender, EventArgs e)

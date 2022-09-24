@@ -1,37 +1,40 @@
 {
-  "chars": [
-    {
-      "STR": 9,
-      "DEX": 8,
-      "VIT": 8,
-      "INT": 14,
-      "WIS": 12,
-      "CHA": 10,
-      "LUK": 12,
-      "MaxHP": 16,
-      "MaxMP": 28,
-      "HP": 16,
-      "MP": 28,
-      "NAME": "Pollux",
-      "DESC": "",
-      "ITEMS": [
-        {
-          "NAME": "An Op Sword",
-          "DESC": "\u002B10000DMG\n\nOMG SO FUKIN COOL"
-        }
-      ],
-      "SKILLS": [
-        {
-          "NAME": "YEET",
-          "DESC": "InstaKill an enemy.\nNo cooldown"
-        }
-      ]
-    }
-  ],
-  "items": [
-    {
-      "NAME": "A random Item",
-      "DESC": ""
-    }
-  ]
+  "version": "1.2.0.0",
+  "data": {
+    "chars": [
+      {
+        "STR": 9,
+        "DEX": 8,
+        "VIT": 8,
+        "INT": 14,
+        "WIS": 12,
+        "CHA": 10,
+        "LUK": 12,
+        "MaxHP": 16,
+        "MaxMP": 28,
+        "HP": 16,
+        "MP": 28,
+        "NAME": "Pollux",
+        "DESC": "",
+        "ITEMS": [
+          {
+            "NAME": "An Op Sword",
+            "DESC": "\u002B10000DMG\n\nOMG SO FUKIN COOL"
+          }
+        ],
+        "SKILLS": [
+          {
+            "NAME": "YEET",
+            "DESC": "InstaKill an enemy.\nNo cooldown"
+          }
+        ]
+      }
+    ],
+    "items": [
+      {
+        "NAME": "Excalibruh",
+        "DESC": "BRUH"
+      }
+    ]
+  }
 }
