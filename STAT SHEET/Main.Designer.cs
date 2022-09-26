@@ -74,6 +74,18 @@
             this.button5 = new System.Windows.Forms.Button();
             this.SkillList = new System.Windows.Forms.ListBox();
             this.label14 = new System.Windows.Forms.Label();
+            this.button6 = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.textBox18 = new System.Windows.Forms.TextBox();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // ListChar
@@ -433,7 +445,7 @@
             // 
             this.richTextBox3.Location = new System.Drawing.Point(1288, 337);
             this.richTextBox3.Name = "richTextBox3";
-            this.richTextBox3.Size = new System.Drawing.Size(251, 459);
+            this.richTextBox3.Size = new System.Drawing.Size(251, 372);
             this.richTextBox3.TabIndex = 45;
             this.richTextBox3.Text = "";
             this.richTextBox3.TextChanged += new System.EventHandler(this.richTextBox3_TextChanged);
@@ -462,7 +474,7 @@
             this.SkillList.ItemHeight = 29;
             this.SkillList.Location = new System.Drawing.Point(1066, 299);
             this.SkillList.Name = "SkillList";
-            this.SkillList.Size = new System.Drawing.Size(211, 497);
+            this.SkillList.Size = new System.Drawing.Size(211, 410);
             this.SkillList.TabIndex = 41;
             this.SkillList.SelectedIndexChanged += new System.EventHandler(this.SkillList_SelectedIndexChanged);
             // 
@@ -475,11 +487,132 @@
             this.label14.TabIndex = 40;
             this.label14.Text = "Skill";
             // 
+            // button6
+            // 
+            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.Location = new System.Drawing.Point(39, 708);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(266, 88);
+            this.button6.TabIndex = 47;
+            this.button6.Text = "Roll";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(1061, 742);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(123, 29);
+            this.label15.TabIndex = 48;
+            this.label15.Text = "Cooldown";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(1066, 777);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(74, 29);
+            this.label16.TabIndex = 49;
+            this.label16.Text = "Delay";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(1266, 731);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(20, 29);
+            this.label17.TabIndex = 55;
+            this.label17.Text = "/";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(1262, 770);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(20, 29);
+            this.label18.TabIndex = 54;
+            this.label18.Text = "/";
+            // 
+            // textBox15
+            // 
+            this.textBox15.Location = new System.Drawing.Point(1288, 728);
+            this.textBox15.Name = "textBox15";
+            this.textBox15.Size = new System.Drawing.Size(49, 35);
+            this.textBox15.TabIndex = 53;
+            this.textBox15.TextChanged += new System.EventHandler(this.textBox15_TextChanged);
+            // 
+            // textBox16
+            // 
+            this.textBox16.Location = new System.Drawing.Point(1288, 767);
+            this.textBox16.Name = "textBox16";
+            this.textBox16.Size = new System.Drawing.Size(49, 35);
+            this.textBox16.TabIndex = 51;
+            this.textBox16.TextChanged += new System.EventHandler(this.textBox16_TextChanged);
+            // 
+            // textBox17
+            // 
+            this.textBox17.Location = new System.Drawing.Point(1211, 767);
+            this.textBox17.Name = "textBox17";
+            this.textBox17.Size = new System.Drawing.Size(49, 35);
+            this.textBox17.TabIndex = 52;
+            this.textBox17.TextChanged += new System.EventHandler(this.textBox17_TextChanged);
+            // 
+            // textBox18
+            // 
+            this.textBox18.Location = new System.Drawing.Point(1211, 728);
+            this.textBox18.Name = "textBox18";
+            this.textBox18.Size = new System.Drawing.Size(49, 35);
+            this.textBox18.TabIndex = 50;
+            this.textBox18.TextChanged += new System.EventHandler(this.textBox18_TextChanged);
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(1371, 721);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(168, 42);
+            this.button7.TabIndex = 56;
+            this.button7.Text = "Use Skill";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(1440, 769);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(99, 51);
+            this.button8.TabIndex = 57;
+            this.button8.Text = "Turn";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(1362, 773);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(72, 33);
+            this.checkBox1.TabIndex = 58;
+            this.checkBox1.Text = "All";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(216F, 216F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1600, 900);
+            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.button8);
+            this.Controls.Add(this.button7);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.label18);
+            this.Controls.Add(this.textBox15);
+            this.Controls.Add(this.textBox16);
+            this.Controls.Add(this.textBox17);
+            this.Controls.Add(this.textBox18);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.button6);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.richTextBox3);
             this.Controls.Add(this.textBox14);
@@ -580,5 +713,17 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.ListBox SkillList;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.TextBox textBox16;
+        private System.Windows.Forms.TextBox textBox17;
+        private System.Windows.Forms.TextBox textBox18;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

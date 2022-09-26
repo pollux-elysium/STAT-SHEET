@@ -337,11 +337,24 @@ namespace STAT_SHEET
             {
                 selectSkill = SkillList.SelectedItem.ToString();
                 SkillSelect = CharSelect.SKILLS.Find(_ => _.NAME == selectSkill);
-                textBox14.Text = SkillSelect.NAME;
-                textBox14.ReadOnly = false;
-                richTextBox3.Text = SkillSelect.DESC;
-                richTextBox3.ReadOnly = false;
+                RenderSkillDetail();
             }
+        }
+
+        private void RenderSkillDetail()
+        {
+            textBox14.Text = SkillSelect.NAME;
+            textBox14.ReadOnly = false;
+            richTextBox3.Text = SkillSelect.DESC;
+            richTextBox3.ReadOnly = false;
+            textBox15.Text = SkillSelect.MaxCoolDown.ToString();
+            textBox16.Text = SkillSelect.MaxDelay.ToString();
+            textBox17.Text = SkillSelect.Delay.ToString();
+            textBox18.Text = SkillSelect.CoolDown.ToString();
+            textBox15.ReadOnly = false;
+            textBox16.ReadOnly = false;
+            textBox17.ReadOnly = false;
+            textBox18.ReadOnly = false;
         }
 
         void refreshSkill()
@@ -353,6 +366,10 @@ namespace STAT_SHEET
             }
             textBox14.ReadOnly = true;
             richTextBox3.ReadOnly = true;
+            textBox15.ReadOnly = true;
+            textBox16.ReadOnly = true;
+            textBox17.ReadOnly = true;
+            textBox18.ReadOnly = true;
         }
 
         void rerenderSkill()
@@ -399,6 +416,65 @@ namespace STAT_SHEET
         private void richTextBox3_TextChanged(object sender, EventArgs e)
         {
             SkillSelect.DESC = richTextBox3.Text;
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            new Roll().Show();
+        }
+
+        private void textBox18_TextChanged(object sender, EventArgs e)
+        {
+            SkillSelect.CoolDown = int.TryParse(textBox18.Text, out int cd) ? cd > 0 ? cd : 0 : 0;
+        }
+
+        private void textBox15_TextChanged(object sender, EventArgs e)
+        {
+            SkillSelect.MaxCoolDown = int.TryParse(textBox15.Text, out int mcd) ? mcd > 0 ? mcd : 0 : 0;
+        }
+
+        private void textBox17_TextChanged(object sender, EventArgs e)
+        {
+            SkillSelect.Delay = int.TryParse(textBox17.Text, out int delay) ? delay > 0 ? delay : 0 : 0;
+        }
+
+        private void textBox16_TextChanged(object sender, EventArgs e)
+        {
+            SkillSelect.MaxDelay = int.TryParse(textBox16.Text, out int mdelay) ? mdelay > 0 ? mdelay : 0 : 0;
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            if (SkillSelect != null)
+            {
+                SkillSelect.Use();
+                RenderSkillDetail();
+            }
+            else
+            {
+                MessageBox.Show("Select a skill.");
+            }
+            
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            if (CharSelect != null && !checkBox1.Checked)
+            {
+                foreach (Skill skill in CharSelect.SKILLS)
+                {
+                    skill.Turn();
+                }
+                RenderSkillDetail();
+            }
+            else if (checkBox1.Checked)
+            {
+                foreach (Skill skill in Program.data.chars.SelectMany(_ => _.SKILLS))
+                {
+                    skill.Turn();
+                }
+                RenderSkillDetail();
+            }
         }
     }
 }

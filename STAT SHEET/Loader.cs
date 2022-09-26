@@ -57,7 +57,7 @@ namespace STAT_SHEET
             {
                 return LoadM1();
             }
-            else if (minor == 2)
+            else if (minor == 2 || minor == 3)
             {
                 return LoadM2();
             }

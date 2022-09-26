@@ -69,5 +69,14 @@ namespace STAT_SHEET
             MessageBox.Show((1 + rand.Next(100)).ToString());
 
         }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            double value = rand.NextDouble();
+            bool sign = value > 0.5;
+        
+            double lvalue = Math.Log10(-2 * Math.Abs(value - 0.5) + 1) * (sign?-1:1);
+            MessageBox.Show("Result: " + lvalue.ToString() + "\nRaw roll:" + value.ToString());
+        }
     }
 }

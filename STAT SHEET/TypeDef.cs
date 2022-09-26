@@ -35,6 +35,21 @@ namespace STAT_SHEET
     public class Skill {
         public string NAME { get; set; } = "Empty Name";
         public string DESC { get; set; } = "";
+
+        public int CoolDown { get; set; }
+        public int MaxCoolDown { get; set; }
+        public int Delay { get; set; }
+        public int MaxDelay { get; set; }
+
+        public void Turn()
+        {
+            CoolDown = CoolDown > 1 ? CoolDown - 1 : 0;
+            Delay = Delay > 1 ? Delay - 1 : 0;
+        }
+        public void Use() {
+            CoolDown = MaxCoolDown;
+            Delay = MaxDelay;
+        }
     }
 
     public class ProgramData

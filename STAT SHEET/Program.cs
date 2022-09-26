@@ -13,7 +13,7 @@ namespace STAT_SHEET
         /// The main entry point for the application.
         /// </summary>
         /// 
-        public const string version = "1.2.0.0";
+        public const string version = "1.3.0.0";
         [STAThread]
         static void Main()
         {
