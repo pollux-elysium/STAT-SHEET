@@ -8,6 +8,9 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Net.Sockets;
+using System.Text;
+using System.IO;
 
 namespace STAT_SHEET
 {
@@ -95,7 +98,7 @@ namespace STAT_SHEET
                 {
                     Program.data = load.Data();
                 }
-                else 
+                else
                 {
                     MessageBox.Show("File is not a valid save file");
                 }
@@ -103,7 +106,8 @@ namespace STAT_SHEET
             refreshAll();
         }
 
-        public void refreshAll() {
+        public void refreshAll()
+        {
             refreshChar();
             if (CharSelect != null)
             {
@@ -152,7 +156,8 @@ namespace STAT_SHEET
             textBox12.ReadOnly = true;
             richTextBox1.ReadOnly = true;
         }
-        public void rerenderChar() {
+        public void rerenderChar()
+        {
             ListChar.Items.Clear();
             foreach (CharData CHAR in Program.data.chars)
             {
@@ -165,7 +170,8 @@ namespace STAT_SHEET
             {
                 Program.data.chars.Remove(Program.data.chars.Find(x => x.NAME == selectedChar));
                 refreshChar();
-            } else
+            }
+            else
             {
                 MessageBox.Show("Please select a character to remove.");
             }
@@ -271,7 +277,7 @@ namespace STAT_SHEET
             textBox13.ReadOnly = true;
             richTextBox2.ReadOnly = true;
         }
-        
+
         void rerenderItem()
         {
             ItemList.Items.Clear();
@@ -325,9 +331,13 @@ namespace STAT_SHEET
             {
                 (manager = new ItemManager()).Show();
             }
-            else
+            else if (!manager.IsDisposed)
             {
                 manager.Show();
+            }
+            else
+            {
+                (manager = new ItemManager()).Show();
             }
         }
 
@@ -454,7 +464,7 @@ namespace STAT_SHEET
             {
                 MessageBox.Show("Select a skill.");
             }
-            
+
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -474,6 +484,71 @@ namespace STAT_SHEET
                     skill.Turn();
                 }
                 RenderSkillDetail();
+            }
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                TcpClient client = new TcpClient(textBox19.Text, int.TryParse(textBox20.Text, out int port) ? port : 0);
+                Byte[] data = Encoding.ASCII.GetBytes("SET" + Program.saveString() + "EOF");
+                NetworkStream stream = client.GetStream();
+                stream.Write(data, 0, data.Length);
+                byte[] rec = new byte[1024];
+                stream.Read(rec, 0, rec.Length);
+                Console.WriteLine(Encoding.ASCII.GetString(rec));
+                stream.Close();
+                client.Close();
+            }
+            catch (SocketException ex)
+            {
+                Console.WriteLine("SocketException: {0}", ex);
+            }
+            catch (IOException ex)
+            {
+                Console.WriteLine("IOExceotion : {0}", ex);
+            }
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                TcpClient client = new TcpClient(textBox19.Text, int.TryParse(textBox20.Text, out int port) ? port : 0);
+                Byte[] data = Encoding.ASCII.GetBytes("GET EOF");
+                NetworkStream stream = client.GetStream();
+                stream.Write(data, 0, data.Length);
+                string retString = "";
+                while (true)
+                {
+
+                    byte[] rec = new byte[1024];
+                    stream.Read(rec, 0, rec.Length);
+                    retString += Encoding.ASCII.GetString(rec).TrimEnd('\0');
+                    if (retString.EndsWith("EOF")) { break; }
+                    
+                }
+                Loader load = new Loader(retString.Substring(0,retString.Length -3),true);
+                if (load.Loadable())
+                {
+                    Program.data = load.Data();
+                }
+                else
+                {
+                    MessageBox.Show("Invalid Data");
+                }
+                refreshAll();
+                stream.Close();
+                client.Close();
+            }
+            catch (SocketException ex)
+            {
+                Console.WriteLine("SocketException: {0}", ex);
+            }
+            catch (IOException ex)
+            {
+                Console.WriteLine("IOExceotion : {0}", ex);
             }
         }
     }

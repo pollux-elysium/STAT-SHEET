@@ -1,5 +1,5 @@
 {
-  "version": "1.2.0.0",
+  "version": "1.4.0.0",
   "data": {
     "chars": [
       {
@@ -25,7 +25,42 @@
         "SKILLS": [
           {
             "NAME": "YEET",
-            "DESC": "InstaKill an enemy.\nNo cooldown"
+            "DESC": "InstaKill an enemy.\nNo cooldown",
+            "CoolDown": 0,
+            "MaxCoolDown": 0,
+            "Delay": 0,
+            "MaxDelay": 0
+          }
+        ]
+      },
+      {
+        "STR": 5,
+        "DEX": 5,
+        "VIT": 5,
+        "INT": 5,
+        "WIS": 5,
+        "CHA": 5,
+        "LUK": 5,
+        "MaxHP": 55,
+        "MaxMP": 55,
+        "HP": 5,
+        "MP": 5,
+        "NAME": "QUAT",
+        "DESC": "",
+        "ITEMS": [
+          {
+            "NAME": "Shitty Sword",
+            "DESC": "Literally made of shit"
+          }
+        ],
+        "SKILLS": [
+          {
+            "NAME": "Suicide",
+            "DESC": "2 sad 4 da world",
+            "CoolDown": 0,
+            "MaxCoolDown": 0,
+            "Delay": 0,
+            "MaxDelay": 0
           }
         ]
       }
@@ -34,6 +69,10 @@
       {
         "NAME": "Excalibruh",
         "DESC": "BRUH"
+      },
+      {
+        "NAME": "BIIIGGG CHONKKY",
+        "DESC": "DATAAA PACKKKETT"
       }
     ]
   }

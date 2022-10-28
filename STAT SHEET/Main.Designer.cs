@@ -86,6 +86,12 @@
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
+            this.textBox19 = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.textBox20 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // ListChar
@@ -596,11 +602,69 @@
             this.checkBox1.Text = "All";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(360, 708);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(135, 88);
+            this.button9.TabIndex = 59;
+            this.button9.Text = "Test Set";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(360, 800);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(135, 88);
+            this.button10.TabIndex = 60;
+            this.button10.Text = "Test Get";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
+            // textBox19
+            // 
+            this.textBox19.Location = new System.Drawing.Point(573, 802);
+            this.textBox19.Name = "textBox19";
+            this.textBox19.Size = new System.Drawing.Size(441, 35);
+            this.textBox19.TabIndex = 61;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(512, 808);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(35, 29);
+            this.label19.TabIndex = 62;
+            this.label19.Text = "IP";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(512, 859);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(57, 29);
+            this.label20.TabIndex = 63;
+            this.label20.Text = "Port";
+            // 
+            // textBox20
+            // 
+            this.textBox20.Location = new System.Drawing.Point(573, 853);
+            this.textBox20.Name = "textBox20";
+            this.textBox20.Size = new System.Drawing.Size(441, 35);
+            this.textBox20.TabIndex = 64;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(216F, 216F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1600, 900);
+            this.Controls.Add(this.textBox20);
+            this.Controls.Add(this.label20);
+            this.Controls.Add(this.label19);
+            this.Controls.Add(this.textBox19);
+            this.Controls.Add(this.button10);
+            this.Controls.Add(this.button9);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
@@ -725,5 +789,11 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.TextBox textBox19;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox textBox20;
     }
 }

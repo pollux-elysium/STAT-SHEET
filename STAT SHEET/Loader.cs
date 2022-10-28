@@ -10,23 +10,30 @@ namespace STAT_SHEET
 {
     class Loader
     {
-        string path;
+
         string rawJson;
         string version;
         JsonElement JSON;
         int minor;
-        public Loader(string inputPath) 
+        public Loader(string inputPath)
         {
-            path = inputPath;
-            rawJson = System.IO.File.ReadAllText(path);
+            rawJson = System.IO.File.ReadAllText(inputPath);
             JSON = JsonDocument.Parse(rawJson).RootElement;
             version = JSON.TryGetProperty("version", out JsonElement ver) ? ver.GetString() : GetVersion();
             minor = int.Parse(version.Split('.')[1]);
-            
+
+        }
+        public Loader(string RawJson,bool _)
+        {
+            rawJson = RawJson;
+            JSON = JsonDocument.Parse(rawJson).RootElement;
+            version = JSON.TryGetProperty("version", out JsonElement ver) ? ver.GetString() : GetVersion();
+            minor = int.Parse(version.Split('.')[1]);
         }
 
-        string GetVersion() {
-            if (JSON.TryGetProperty("chars",out _))
+        string GetVersion()
+        {
+            if (JSON.TryGetProperty("chars", out _))
             {
                 return "1.1.0.0";
             }
@@ -35,7 +42,7 @@ namespace STAT_SHEET
                 return "1.0.0.0";
             }
         }
-        
+
         public bool Loadable()
         {
             if (int.Parse(Program.version.Split('.')[1]) < minor)
@@ -57,16 +64,17 @@ namespace STAT_SHEET
             {
                 return LoadM1();
             }
-            else if (minor == 2 || minor == 3)
+            else if (minor == 2 || minor == 3 || minor == 4)
             {
                 return LoadM2();
             }
             else
             {
+                Console.WriteLine("Error: Version not supported");
                 return new ProgramData();
             }
         }
-        
+
         ProgramData LoadM0()
         {
             return new ProgramData() { chars = JSON.Deserialize<List<CharData>>() };
